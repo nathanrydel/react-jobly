@@ -29,7 +29,7 @@ function CompanyDetail() {
 
   console.log("CompanyDetails renders with: ", handle, company, error);
 
-  // TODO: add in psuedo docstring for useEffects
+  // Execute the getCompany API call when the URL param changes.
   useEffect(function getCompanyAndJobs() {
     async function getCompany() {
       try {
@@ -48,7 +48,7 @@ function CompanyDetail() {
   // Should redirect (Navigate Component) OR could make a reusable 404Component to show instead
   // This helps for UX AND for SEO
 
-  if (error.length !== 0) return <h2>{error[0]}</h2>;
+  if (error.length !== 0) return <h2>404: Company not found</h2>;
 
   if (!company) return <h2>Loading...</h2>;
 

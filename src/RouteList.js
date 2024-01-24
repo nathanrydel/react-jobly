@@ -5,17 +5,16 @@ import CompanyList from "./CompanyList";
 import JobList from "./JobList";
 
 /** Site-wide routes
- * TODO: add in the full docstring
  *
  * Props:
- * -
+ * - none
  *
  * State:
- * -
+ * - none
  *
  * Visiting a not found route navigates to homepage
  *
- * RouteList -> { Home... }
+ * RouteList -> { Homepage, CompanyList, CompanyDetail, JobList }
  */
 
 function RouteList() {

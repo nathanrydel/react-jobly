@@ -25,13 +25,18 @@ function JobList() {
   const [jobs, setJobs] = useState();
   console.log("JobList, jobs state: ", jobs);
 
-  // TODO: useEffect psuedo docstring
+  // Execute the search once after rendering.
   useEffect(function getJobsOnMount() {
     console.log("Calling getJobsOnMount");
     search();
   }, []);
 
-  // FIXME: add docstring!!!!!
+  /**
+   *  Get jobs from the API using an optional search term.
+   *
+   *  No direct output -- sets the state to jobsRes directly and rerenders.
+   */
+
   async function search(searchTerm) {
     const jobsRes = await JoblyApi.getJobs(searchTerm);
     console.log("jobsRes: ", jobsRes);

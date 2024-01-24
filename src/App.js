@@ -5,11 +5,11 @@ import NavBar from "./NavBar";
 
 /** Main App component
  *
- * TODO: flesh out the docstring
- *
  * Props:
+ * - none
  *
  * State:
+ * - none
  *
  * App -> { NavBar, RouteList }
  */
