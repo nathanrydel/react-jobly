@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import JoblyApi from './api';
 
 /**
@@ -24,7 +24,7 @@ function CompanyList() {
   useEffect(function getCompaniesOnMount() {
     console.log("Calling getCompaniesOnMount");
     search();
-  }, [ ]);
+  }, []);
 
   async function search(searchTerm) {
     const companiesRes = await JoblyApi.getCompanies(searchTerm);
@@ -32,22 +32,20 @@ function CompanyList() {
     setCompanies(companiesRes);
   }
 
-  if (!companies) return <h2>Loading...</h2>
+  if (!companies) return <h2>Loading...</h2>;
 
-  return (                      // TODO: Put CompanyCards here.
-    companies.map(c =>
-      <div>
-        <p>{c.handle}</p>
-        <p>{c.name}</p>
-        <p>{c.description}</p>
-        <p>{c.logoUrl}</p>
-      </div>)
-  );
+  return (
+    <div className="CompanyList">
+      {companies.map(c =>
+        <div key={c.handle}>
+          <p>{c.handle}</p>
+          <p>{c.name}</p>
+          <p>{c.description}</p>
+          <p>{c.logoUrl}</p>
+        </div>)}
+
+    </div>
+  ); // TODO: Put CompanyCards here.
 }
 
 export default CompanyList;
-
-
-
-
-// Here, we will call /companies endpoint
