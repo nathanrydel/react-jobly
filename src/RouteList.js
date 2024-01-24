@@ -4,6 +4,10 @@ import CompanyDetail from "./CompanyDetail";
 import CompanyList from "./CompanyList";
 import JobList from "./JobList";
 
+/** Site-wide routes
+ *
+ * Visiting a not found route navigates to homepage
+ */
 
 function RouteList() {
   console.log("RouteList");

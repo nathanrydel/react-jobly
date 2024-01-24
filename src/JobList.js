@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import JoblyApi from './api';
 import JobCardList from './JobCardList';
 import SearchForm from './SearchForm';
-import "./JobList.css"
+import "./JobList.css";
+
 /** JobList page
  *
  *  Lists all the jobs

@@ -2,6 +2,17 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
 
+/** App NavBar element for navigation
+ *
+ * Props:
+ * - None
+ *
+ * State:
+ * - None
+ *
+ * App -> NavBar
+ */
+
 function NavBar() {
   console.log("NavBar rendered");
 
