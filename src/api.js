@@ -17,6 +17,7 @@ class JoblyApi {
     "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
 
   static async request(endpoint, data = {}, method = "GET") {
+    console.log("API request with: ", endpoint, data, method);
     const url = new URL(`${BASE_URL}/${endpoint}`);
     const headers = {
       authorization: `Bearer ${JoblyApi.token}`,
@@ -58,17 +59,31 @@ class JoblyApi {
   /** Get and return a list of all companies */
 
   static async getCompanies(nameLike) {
-    // let res = await this.request(`companies`, { nameLike }); // FIXME: search
-    let res = await this.request(`companies`);
+    const filteredData =
+      (Object.entries({ nameLike }).filter(([_, value]) => value !== undefined));
+
+    let res = await this.request(`companies`, Object.fromEntries(filteredData));
+
     return res.companies;
+
+    // let res = await this.request(`companies`, nameLike); // FIXME: search
+    // // let res = await this.request(`companies`);
+    // return res.companies;
   }
 
   /** Get a list of all jobs */
   //TODO: getJobs
   static async getJobs(title) {
-    // let res = await this.request(`jobs`, { title });
-    let res = await this.request(`jobs`);   // FIXME: search
-    return res.jobs;
+    const filteredData =
+      (Object.entries({ title }).filter(([_, value]) => value !== undefined));
+
+    let res = await this.request(`companies`, Object.fromEntries(filteredData));
+
+    return res.companies;
+
+    // let res = await this.request(`jobs`, { title }); // FIXME: search
+    // let res = await this.request(`jobs`);
+    // return res.jobs;
   }
 
   //TODO: getJob -- Probably in Part 2
