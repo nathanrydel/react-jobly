@@ -1,0 +1,25 @@
+.NavBar {
+  display: flex;
+  background-color: bisque;
+}
+
+.NavBar a {
+  /* display: inline-block */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.NavBar li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.NavBar-nav a:hover {
+  color: black;
+  font-weight: bold;
+}
+
+.NavBar-nav a.active {
+  color: black;
+  /* font-weight: bold; */
+}
