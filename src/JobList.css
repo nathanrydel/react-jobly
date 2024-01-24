@@ -1,0 +1,7 @@
+.JobList-card {
+  margin: .5em 0;
+  margin-left: 20%;
+  border: 2px solid black;
+  border-radius: 4px;
+  width: 65%;
+}
