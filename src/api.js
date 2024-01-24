@@ -53,10 +53,7 @@ class JoblyApi {
     return res.company;
   }
 
-  // obviously, you'll add a lot here ...
-  //TODO: getCompanies
-
-  /** Get and return a list of all companies */
+/** Get and return a list of all companies */
 
   static async getCompanies(nameLike) {
     const filteredData =
@@ -65,25 +62,16 @@ class JoblyApi {
     let res = await this.request(`companies`, Object.fromEntries(filteredData));
 
     return res.companies;
-
-    // let res = await this.request(`companies`, nameLike); // FIXME: search
-    // // let res = await this.request(`companies`);
-    // return res.companies;
   }
 
   /** Get a list of all jobs */
-  //TODO: getJobs
   static async getJobs(title) {
     const filteredData =
       (Object.entries({ title }).filter(([_, value]) => value !== undefined));
 
-    let res = await this.request(`companies`, Object.fromEntries(filteredData));
+    let res = await this.request(`jobs`, Object.fromEntries(filteredData));
 
-    return res.companies;
-
-    // let res = await this.request(`jobs`, { title }); // FIXME: search
-    // let res = await this.request(`jobs`);
-    // return res.jobs;
+    return res.jobs;
   }
 
   //TODO: getJob -- Probably in Part 2
