@@ -43,7 +43,7 @@ function CompanyList() {
       </div>)}
 
     </div>
-  ); // TODO: Put CompanyCards here.
+  );
 }
 
 export default CompanyList;

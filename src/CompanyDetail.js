@@ -46,7 +46,16 @@ function CompanyDetail() {
   if (!company) return <h2>Loading...</h2>;
 
   return (
-    <div className="CompanyDetail">CompanyDetail</div>
+    <div className="CompanyDetail">
+      <h3>{company.name}</h3>
+      <img src={company.logoUrl} />
+      <p>{company.description}</p>
+      <h4>Jobs</h4>
+      <ul>
+        {company.jobs.map(j => <li key={j.id}>{j.title}</li>)}
+      </ul>
+      </div>
+
   );
 }
 
