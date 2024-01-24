@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import JoblyApi from './api';
+import CompanyCard from './CompanyCard';
 
 /**
  *  CompanyList shows a page with a list of all companies.
@@ -37,12 +38,9 @@ function CompanyList() {
   return (
     <div className="CompanyList">
       {companies.map(c =>
-        <div key={c.handle}>
-          <p>{c.handle}</p>
-          <p>{c.name}</p>
-          <p>{c.description}</p>
-          <p>{c.logoUrl}</p>
-        </div>)}
+      <div key={c.handle}>
+        <CompanyCard company={c} />
+      </div>)}
 
     </div>
   ); // TODO: Put CompanyCards here.

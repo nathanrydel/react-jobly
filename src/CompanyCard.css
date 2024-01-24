@@ -1,0 +1,32 @@
+.CompanyCard {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CompanyCard:hover {
+  text-decoration: none;
+  color: tomato;
+}
+
+.CompanyCard-card img {
+  height: 20px;
+  width: auto;
+}
+
+.CompanyCard-card {
+  border: 2px black solid;
+  margin: 16px;
+  padding: 3px;
+  max-width: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CompanyCard-card-description {
+  margin-left: 15px;
+}
