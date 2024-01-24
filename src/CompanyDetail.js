@@ -24,9 +24,27 @@ import "./CompanyDetail.css";
 function CompanyDetail() {
   const { handle } = useParams();
   const [company, setCompany] = useState(null);
-  const [error, setError] = useState({});
+  const [error, setError] = useState([]);
 
   console.log("CompanyDetails renders with: ", handle, company, error);
+
+  useEffect(function getCompanyAndJobs() {
+    async function getCompany() {
+      try {
+        const companyRes = await JoblyApi.getCompany(handle);
+        setCompany(companyRes);
+      } catch (err) {
+        setError(err);
+      }
+    }
+
+    getCompany();
+  }, [handle]);
+
+  if (error.length !== 0) return <h2>{error[0]}</h2>;
+
+  if (!company) return <h2>Loading...</h2>;
+
   return (
     <div className="CompanyDetail">CompanyDetail</div>
   );
