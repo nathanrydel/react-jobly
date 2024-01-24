@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+
 import JoblyApi from './api';
 import JobCardList from './JobCardList';
 import SearchForm from './SearchForm';
-
+import "./JobList.css"
 /** JobList page
  *
  *  Lists all the jobs
@@ -36,17 +37,19 @@ function JobList() {
   if (!jobs) return <h2>Loading...</h2>;
 
   return (
-    <div>
-      {jobs.map(j =>
-        <div key={j.id}>
-          <h4>{j.title}</h4>
-          <h5>{j.companyName}</h5>
-          <p>
-            Salary: {j.salary ? '$' + j.salary : 'YOU GET NOTHING / pro bono'}
-          </p>
-          <p>Equity: {j.equity ? j.equity + '%' : 'NO EQUITY!'}</p>
-        </div>
-      )}
+    <div className="JobList">
+      <div className="JobList-list">
+        {jobs.map(j =>
+          <div key={j.id} className="JobList-card">
+            <h4>{j.title}</h4>
+            <h5>{j.companyName}</h5>
+            <p>
+              Salary: {j.salary ? '$' + j.salary : 'YOU GET NOTHING / pro bono'}
+            </p>
+            <p>Equity: {j.equity ? j.equity + '%' : 'NO EQUITY!'}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
