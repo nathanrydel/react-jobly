@@ -1,8 +1,9 @@
 import React from 'react';
 
 function Homepage() {
+  console.log("*** Homepage");
   return (
-    <div>Homepage</div>
+    <div>Welcome to the home of jobs</div>
   );
 }
 

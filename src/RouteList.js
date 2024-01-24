@@ -6,14 +6,17 @@ import JobList from "./JobsList";
 
 
 function RouteList() {
+  console.log("RouteList");
   return (
-    <Routes>
-      <Route to="/" element={<Homepage />} />
-      <Route to="/companies" element={<CompanyList />} />
-      <Route to="/companies/:handle" element={<CompanyDetail />} />
-      <Route to="/jobs" element={<JobList />} />
-      <Route to="/*" element={<Navigate to="/" />} />
-    </Routes>
+    <div>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/companies" element={<CompanyList />} />
+        <Route path="/companies/:handle" element={<CompanyDetail />} />
+        <Route path="/jobs" element={<JobList />} />
+        <Route path="/*" element={<Navigate to="/" />} />
+      </Routes>
+    </div>
   );
 }
 

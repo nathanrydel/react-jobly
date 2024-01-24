@@ -58,14 +58,16 @@ class JoblyApi {
   /** Get and return a list of all companies */
 
   static async getCompanies(nameLike) {
-    let res = await this.request(`companies`, { nameLike });
+    // let res = await this.request(`companies`, { nameLike }); // FIXME: search
+    let res = await this.request(`companies`);
     return res.companies;
   }
 
   /** Get a list of all jobs */
   //TODO: getJobs
-  static async getJobs() {
-    let res = await this.request(`jobs`);
+  static async getJobs(title) {
+    // let res = await this.request(`jobs`, { title });
+    let res = await this.request(`jobs`);   // FIXME: search
     return res.jobs;
   }
 
