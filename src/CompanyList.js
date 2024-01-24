@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import JoblyApi from './api';
 import CompanyCard from './CompanyCard';
+import SearchForm from './SearchForm';
 
 /**
  *  CompanyList shows a page with a list of all companies.
@@ -27,16 +28,18 @@ function CompanyList() {
   const [companies, setCompanies] = useState();
   console.log("CompanyList, companies state:", companies);
 
-  // TODO: add a psuedo docstring to specify useEffect usage
+  // Execute the search once after rendering.
   useEffect(function getCompaniesOnMount() {
     console.log("Calling getCompaniesOnMount");
     search();
   }, []);
 
-  // {nameLike: undefined}
-  // {}
+  /**
+   *  Get companies from the API using an optional search term.
+   *
+   *  No direct output -- sets the state to companiesRes directly and rerenders.
+   */
 
-  // FIXME: add docstring!!!!!!!!!!
   async function search(searchTerm) {
     const companiesRes = await JoblyApi.getCompanies(searchTerm);
     console.log("companiesRes: ", companiesRes);
@@ -45,13 +48,19 @@ function CompanyList() {
 
   if (!companies) return <h2>Loading...</h2>;
 
-  return (
+  return (  // TODO: Make the search customizable by passing search type prop
     <div className="CompanyList">
-      {companies.map(c =>
-      <div key={c.handle}>
-        <CompanyCard company={c} />
-      </div>)}
-
+      <div className="CompanyList-search">
+        <SearchForm searchFn={search} msg="Search companies by name"/>
+      </div>
+      {companies.length > 0 &&
+      <div className="CompanyList-companies">
+        {companies.map(c =>
+        <div key={c.handle}>
+          <CompanyCard company={c} />
+        </div>)}
+      </div>}
+      {companies.length === 0 && <h4>Sorry, no results found.</h4>}
     </div>
   );
 }
