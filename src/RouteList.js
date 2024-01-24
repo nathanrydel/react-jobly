@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Homepage from "./Homepage";
 import CompanyDetail from "./CompanyDetail";
 import CompanyList from "./CompanyList";
-import JobList from "./JobsList";
+import JobList from "./JobList";
 
 
 function RouteList() {
