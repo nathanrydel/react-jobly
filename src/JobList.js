@@ -21,14 +21,17 @@ import "./JobList.css";
  */
 
 function JobList() {
+  // TODO: explicitly handle loading state for better tracking
   const [jobs, setJobs] = useState();
   console.log("JobList, jobs state: ", jobs);
 
+  // TODO: useEffect psuedo docstring
   useEffect(function getJobsOnMount() {
     console.log("Calling getJobsOnMount");
     search();
   }, []);
 
+  // FIXME: add docstring!!!!!
   async function search(searchTerm) {
     const jobsRes = await JoblyApi.getJobs(searchTerm);
     console.log("jobsRes: ", jobsRes);

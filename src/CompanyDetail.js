@@ -22,12 +22,14 @@ import "./CompanyDetail.css";
  */
 
 function CompanyDetail() {
+  // TODO: have someone way to track loading state, be explicit to handle it
   const { handle } = useParams();
   const [company, setCompany] = useState(null);
   const [error, setError] = useState([]);
 
   console.log("CompanyDetails renders with: ", handle, company, error);
 
+  // TODO: add in psuedo docstring for useEffects
   useEffect(function getCompanyAndJobs() {
     async function getCompany() {
       try {
@@ -40,6 +42,11 @@ function CompanyDetail() {
 
     getCompany();
   }, [handle]);
+
+  // TODO: currently priniting error out on screen -- Not an end user error to show
+  // Currently shows a 200 response due to how React handles it -- even if its a 404 from the backend
+  // Should redirect (Navigate Component) OR could make a reusable 404Component to show instead
+  // This helps for UX AND for SEO
 
   if (error.length !== 0) return <h2>{error[0]}</h2>;
 
@@ -54,7 +61,7 @@ function CompanyDetail() {
       <ul>
         {company.jobs.map(j => <li key={j.id}>{j.title}</li>)}
       </ul>
-      </div>
+    </div>
 
   );
 }

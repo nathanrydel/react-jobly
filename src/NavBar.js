@@ -16,10 +16,11 @@ import "./NavBar.css";
 function NavBar() {
   console.log("NavBar rendered");
 
+  // TODO: Can use NavLink for Jobly, use "end" to specify that "Route" ends at the "/"
   return (
     <div className="NavBar">
       <div className="NavBar-brand">
-        <Link to="/">Jobly</Link>
+        <NavLink to="/" end>Jobly</NavLink>
       </div>
       <div className="NavBar-nav">
         <ul>
