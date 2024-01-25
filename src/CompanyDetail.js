@@ -22,9 +22,9 @@ import "./CompanyDetail.css";
  */
 
 function CompanyDetail() {
-  // TODO: have someone way to track loading state, be explicit to handle it
   const { handle } = useParams();
   const [company, setCompany] = useState(null);
+  const [hasLoaded, setHasLoaded] = useState(false);
   const [error, setError] = useState([]);
 
   console.log("CompanyDetails renders with: ", handle, company, error);
@@ -35,6 +35,7 @@ function CompanyDetail() {
       try {
         const companyRes = await JoblyApi.getCompany(handle);
         setCompany(companyRes);
+        setHasLoaded(true);
       } catch (err) {
         setError(err);
       }
@@ -50,7 +51,7 @@ function CompanyDetail() {
 
   if (error.length !== 0) return <h2>404: Company not found</h2>;
 
-  if (!company) return <h2>Loading...</h2>;
+  if (!hasLoaded) return <h2>Loading...</h2>;
 
   return (
     <div className="CompanyDetail">
