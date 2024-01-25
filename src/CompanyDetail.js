@@ -56,7 +56,7 @@ function CompanyDetail() {
     <div className="CompanyDetail">
       <div className="CompanyDetail-company">
         <h2>{company.name}</h2>
-        <img src={company.logoUrl} />
+        <img src={company.logoUrl} alt={company.name ? company.name : "logo"}/>
         <p>{company.description}</p>
       </div>
       <div className="CompanyDetail-job-card-list">
