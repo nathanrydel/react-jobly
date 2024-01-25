@@ -16,7 +16,10 @@ import React from 'react';
 function Homepage() {
   console.log("*** Homepage");
   return (
-    <div>Welcome to the home of Jobly</div>
+    <div className="Homepage">
+      <h1>Jobly</h1>
+      <p>All the jobs in one, convenient place.</p>
+    </div>
   );
 }
 
