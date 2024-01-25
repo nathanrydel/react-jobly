@@ -40,6 +40,8 @@ function JobList() {
    *  No direct output -- sets the state to jobsRes directly and rerenders.
    */
 
+  // TODO: Make the search term a variable elsewhere, potl a global
+  // Why: to draw more attention to it. Ditto company list.
   async function search(searchTerm) {
     const jobsRes = await JoblyApi.getJobs(searchTerm);
     console.log("jobsRes: ", jobsRes);

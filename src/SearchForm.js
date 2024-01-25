@@ -18,10 +18,12 @@ function SearchForm({ searchFn, msg }) {
   const [formData, setFormData] = useState('');
   console.log('SearchForm renders', formData)
 
+  // TODO: Short docstrings please
   function handleChange(evt) {
     setFormData(evt.target.value);
   }
 
+  // TODO: Short docstrings please
   function handleSubmit(evt) {
     evt.preventDefault()
     searchFn(formData.trim());

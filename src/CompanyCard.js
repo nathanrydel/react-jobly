@@ -5,7 +5,7 @@ import './CompanyCard.css';
 /**
  *  CompanyCard shows information about a single company.
  *
- *  Endpoint: /companies
+ *  Endpoint: /companies   // TODO: The endpoint itself doesn't render the card
  *
  *  Props:
  *  - company: {handle, name, description, numEmployees, logoUrl}

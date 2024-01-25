@@ -39,6 +39,7 @@ function CompanyDetail() {
         setHasLoaded(true);
       } catch (err) {
         setError(err);
+        // TODO: set hasLoaded to true here to stay honest
       }
     }
 

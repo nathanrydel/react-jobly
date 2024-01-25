@@ -4,8 +4,9 @@ import React from 'react';
  * A single job
  *
  *
- * Props:
+ * Props:                            // TODO: no coHandle
  * - job: {id, title, salary, equity, companyHandle, companyName}
+ *           // TODO: Note that companyName is optional, (like ? companyName)
  *
  * State:
  * - None
