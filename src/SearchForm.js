@@ -15,8 +15,8 @@ import { useState } from 'react';
  */
 
 function SearchForm({ searchFn, msg }) {
-
   const [formData, setFormData] = useState('');
+  console.log('SearchForm renders', formData)
 
   function handleChange(evt) {
     setFormData(evt.target.value);
