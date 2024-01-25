@@ -14,14 +14,12 @@ import SearchForm from './SearchForm';
  *  States:
  *  - companies (called from API):
  *      [{handle, name, description, numEmployees, logoUrl}, ...]
+ *  - hasLoaded: boolean to track if API has returned a response
  *
  *   RouteList -> CompanyList -> {SearchForm, CompanyCard}
  */
 
 function CompanyList() {
-  // TODO: Search is handled here, would need to keep track of search term
-  // from SearchForm to track its use here (So it stays in the search field on SearchForm submission)
-
   const [companies, setCompanies] = useState();
   const [hasLoaded, setHasLoaded] = useState(false);
   console.log("CompanyList, companies state:", companies);

@@ -16,6 +16,8 @@ import "./JobList.css";
  *
  *  State:
  *  - jobs: [{id, title, salary, equity, companyHandle, companyName}, ...]
+ *  - hasLoaded: boolean to track if API has returned a response
+ *
  *
  * RouteList -> JobList -> { SearchForm, JobCardList }
  */
