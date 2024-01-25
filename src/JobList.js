@@ -23,12 +23,14 @@ import "./JobList.css";
 function JobList() {
   // TODO: explicitly handle loading state for better tracking
   const [jobs, setJobs] = useState();
+  const [hasLoaded, setHasLoaded] = useState(false);
   console.log("JobList, jobs state: ", jobs);
 
   // Execute the search once after rendering.
   useEffect(function getJobsOnMount() {
     console.log("Calling getJobsOnMount");
     search();
+    // console.log("hasLoaded: ", hasLoaded);
   }, []);
 
   /**
@@ -41,9 +43,10 @@ function JobList() {
     const jobsRes = await JoblyApi.getJobs(searchTerm);
     console.log("jobsRes: ", jobsRes);
     setJobs(jobsRes);
+    setHasLoaded(true);
   }
 
-  if (!jobs) return <h2>Loading...</h2>;
+  if (!hasLoaded) return <h2>Loading...</h2>;
 
   return (
     <div className="JobList">
