@@ -24,7 +24,7 @@ function SearchForm({ searchFn, msg }) {
 
   function handleSubmit(evt) {
     evt.preventDefault()
-    searchFn(formData);
+    searchFn(formData.trim());
   }
 
   return (

@@ -33,6 +33,7 @@ class JoblyApi {
       ? JSON.stringify(data)
       : undefined;
 
+    console.log('API pre-request url, method, body, headers', url, method, body, headers);
     const resp = await fetch(url, { method, body, headers });
 
     if (!resp.ok) {
@@ -53,12 +54,14 @@ class JoblyApi {
     return res.company;
   }
 
-/** Get and return a list of all companies */
+  /** Get and return a list of all companies */
 
   static async getCompanies(nameLike) {
     const filteredData =
-      (Object.entries({ nameLike }).filter(([_, value]) => value !== undefined));
+      (Object.entries({ nameLike })
+        .filter(([_, value]) => value !== undefined && value !== ""));
 
+    console.log('filteredData in getCompanies', filteredData);
     let res = await this.request(`companies`, Object.fromEntries(filteredData));
 
     return res.companies;
@@ -67,7 +70,8 @@ class JoblyApi {
   /** Get a list of all jobs */
   static async getJobs(title) {
     const filteredData =
-      (Object.entries({ title }).filter(([_, value]) => value !== undefined));
+      (Object.entries({ title })
+        .filter(([_, value]) => value !== undefined && value !== ""));
 
     let res = await this.request(`jobs`, Object.fromEntries(filteredData));
 
