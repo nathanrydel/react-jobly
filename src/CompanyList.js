@@ -19,13 +19,11 @@ import SearchForm from './SearchForm';
  */
 
 function CompanyList() {
-  // TODO: could be more definitive about state
-  // add some tracking for loading
-
   // TODO: Search is handled here, would need to keep track of search term
   // from SearchForm to track its use here (So it stays in the search field on SearchForm submission)
 
   const [companies, setCompanies] = useState();
+  const [hasLoaded, setHasLoaded] = useState(false);
   console.log("CompanyList, companies state:", companies);
 
   // Execute the search once after rendering.
@@ -44,9 +42,10 @@ function CompanyList() {
     const companiesRes = await JoblyApi.getCompanies(searchTerm);
     console.log("companiesRes: ", companiesRes);
     setCompanies(companiesRes);
+    setHasLoaded(true);
   }
 
-  if (!companies) return <h2>Loading...</h2>;
+  if (!hasLoaded) return <h2>Loading...</h2>;
 
   return (  // TODO: Make the search customizable by passing search type prop
     <div className="CompanyList">
