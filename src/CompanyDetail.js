@@ -54,15 +54,16 @@ function CompanyDetail() {
 
   return (
     <div className="CompanyDetail">
-      <h3>{company.name}</h3>
-      <img src={company.logoUrl} />
-      <p>{company.description}</p>
-      <h4>Jobs</h4>
-      <ul>
-        {company.jobs.map(j => <li key={j.id}>{j.title}</li>)}
-      </ul>
+      <div className="CompanyDetail-company">
+        <h2>{company.name}</h2>
+        <img src={company.logoUrl} />
+        <p>{company.description}</p>
+      </div>
+      <div className="CompanyDetail-job-card-list">
+        <h3>Jobs</h3>
+        {company.jobs && <JobCardList jobs={company.jobs} />}
+      </div>
     </div>
-
   );
 }
 
