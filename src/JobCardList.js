@@ -1,24 +1,37 @@
 import React from "react";
 
-import "./JobCardList.css"
+import JobCard from "./JobCard";
+import "./JobCardList.css";
 
 /**
- * A list of all jobs
- *
- * TODO: Needs implementation after stub review in CR1
+ * Shows a list of all jobs
  *
  * Props:
- * - jobs:
+ * - jobs: list of jobs
+ *  where a job is {id, title, salary, equity, companyHandle, companyName}
  *
  * State:
  * - None
  *
- * Joblist -> JobCard
+ * { CompanyDetail, Joblist } -> JobCardList -> JobCard
  */
 
-function JobCardList() {
+function JobCardList({ jobs }) {
+  console.log("JobCardList renders", jobs);
+
   return (
-    <div>JobCardList</div>
+    <div className="JobCardList">
+      {jobs.map(j => (
+        <JobCard
+          key={j.id}
+          id={j.id}
+          title={j.title}
+          salary={j.salary}
+          equity={j.equity}
+          companyName={j.companyName}
+        />
+      ))}
+    </div>
   );
 }
 

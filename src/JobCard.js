@@ -3,10 +3,9 @@ import React from 'react';
 /**
  * A single job
  *
- * TODO: Needs implementation after stub review in CR1
  *
  * Props:
- * - job:
+ * - job: {id, title, salary, equity, companyHandle, companyName}
  *
  * State:
  * - None
@@ -14,9 +13,19 @@ import React from 'react';
  * Joblist -> JobCard
  */
 
-function JobCard() {
+function JobCard({ id, title, salary, equity, companyName }) {
+  console.log("JobCard renders");
   return (
-    <div>JobCard</div>
+    <div className="JobCard">
+      <div className="JobCard-title">
+        <h4>{title}</h4>
+        <p><i>{companyName}</i></p>
+      </div>
+      <div className="JobCard-body">
+        <p>Salary: {salary ? "$" + salary : "Pride"}</p>
+        <p>Equity: {equity ? equity + "%" : "Exposure"}</p>
+      </div>
+    </div>
   );
 }
 
