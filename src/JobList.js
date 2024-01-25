@@ -21,7 +21,6 @@ import "./JobList.css";
  */
 
 function JobList() {
-  // TODO: explicitly handle loading state for better tracking
   const [jobs, setJobs] = useState();
   const [hasLoaded, setHasLoaded] = useState(false);
   console.log("JobList, jobs state: ", jobs);
