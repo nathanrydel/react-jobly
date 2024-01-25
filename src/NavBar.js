@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 
 /** App NavBar element for navigation
@@ -16,7 +16,6 @@ import "./NavBar.css";
 function NavBar() {
   console.log("NavBar rendered");
 
-  // TODO: Can use NavLink for Jobly, use "end" to specify that "Route" ends at the "/"
   return (
     <div className="NavBar">
       <div className="NavBar-brand">
