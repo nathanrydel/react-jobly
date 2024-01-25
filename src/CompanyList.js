@@ -47,7 +47,7 @@ function CompanyList() {
 
   if (!hasLoaded) return <h2>Loading...</h2>;
 
-  return (  // TODO: Make the search customizable by passing search type prop
+  return (
     <div className="CompanyList">
       <div className="CompanyList-search">
         <SearchForm searchFn={search} msg="Search companies by name"/>
