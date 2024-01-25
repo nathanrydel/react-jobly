@@ -47,17 +47,11 @@ function JobList() {
 
   return (
     <div className="JobList">
+      <div className="JobList-search">
+        <SearchForm searchFn={search} msg="Search jobs by title"/>
+      </div>
       <div className="JobList-list">
-        {jobs.map(j =>
-          <div key={j.id} className="JobList-card">
-            <h4>{j.title}</h4>
-            <h5>{j.companyName}</h5>
-            <p>
-              Salary: {j.salary ? '$' + j.salary : 'YOU GET NOTHING / pro bono'}
-            </p>
-            <p>Equity: {j.equity ? j.equity + '%' : 'NO EQUITY!'}</p>
-          </div>
-        )}
+        <JobCardList jobs={jobs} />
       </div>
     </div>
   );
