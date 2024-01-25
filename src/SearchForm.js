@@ -4,8 +4,6 @@ import { useState } from 'react';
 /**
  * A text input search field with submit button
  *
- * TODO: Needs implementation after stub review in CR1
- *
  * Props:
  * - searchFn: function to call in parent
  * - msg: placeholder for search form
