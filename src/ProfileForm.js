@@ -28,7 +28,7 @@ function ProfileForm({ updateProfile }) {
 
   /** Handle user updates on the form by named input field */
   function handleChange(evt) {
-    const { name, value } = evt.target.value;
+    const { name, value } = evt.target;
     setFormData((fData) => ({ ...fData, [name]: value }));
   }
 
