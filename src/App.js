@@ -1,10 +1,13 @@
-import './App.css';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
+
 import RouteList from "./RouteList";
 import NavBar from "./NavBar";
-import { useState } from 'react';
 import userContext from "./userContext";
+import JoblyApi from './api';
 
+import './App.css';
 
 /** Main App component
  *
@@ -12,7 +15,7 @@ import userContext from "./userContext";
  * - none
  *
  * State:
- * - username:
+ * - currUser:
  * - token:
  * - ?more
  *
@@ -30,20 +33,34 @@ function App() {
    */
 
   // TODO: Implement this.
-  // useEffect(function checkForUser() {
-  //   async function getUserFromApi() {
-  //     return 1;
-  //   }
-  // }, []);
+  useEffect(function checkForUser() {
+    async function getUserFromApi() {
+      if (token) {
+        try {
+          const { username } = jwtDecode(token);
+          JoblyApi.token = token;
+          const userRes = await JoblyApi.getUser(username);
+          setCurrUser(userRes);
+        } catch (err) {
+          console.log("API encountered error", err);
+          setCurrUser(null);
+        }
+      } else {
+        setCurrUser(null);
+      }
+    }
+    getUserFromApi();
+  }, [token]);
 
   /** Sign up user for the site */
   async function signUp() {
     return;
   }
 
-  /** Login user into site */
-  async function login() {
-    return;
+  /** App wide function to Login user */
+  async function login(data) {
+    let userTokenRes = await JoblyApi.login(data);
+    setToken(userTokenRes);
   }
 
   /** Log out a user from the site */
@@ -52,16 +69,21 @@ function App() {
   }
 
   /** Update user profile on the site */
-  async function updateProfile() {
+  async function updateProf() {
     return;
   }
 
   return (
-    <userContext.Provider value={{ user: currUser, token }}>
+    <userContext.Provider value={{ currUser, token }}>
       <BrowserRouter>
         <div className="App">
           <NavBar logOut={logOut} />
-          <RouteList login={login} signUp={signUp} currUser={currUser}/>
+          <RouteList
+            login={login}
+            signUp={signUp}
+            updateProf={updateProf}
+            currUser={currUser}
+          />
         </div>
       </BrowserRouter>
     </userContext.Provider>

@@ -18,7 +18,8 @@ import { Link } from 'react-router-dom';
 function Homepage() {
   const { currUser } = useContext(userContext);
 
-  console.log("*** Homepage");
+  console.log("*** Homepage", currUser);
+
   return (
     <div className="Homepage">
       <h1>Jobly</h1>

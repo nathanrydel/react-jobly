@@ -16,6 +16,8 @@ class JoblyApi {
   //   "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
   //   "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
 
+  static token;
+
   static async request(endpoint, data = {}, method = "GET") {
     console.log("API request with: ", endpoint, data, method);
     const url = new URL(`${BASE_URL}/${endpoint}`);
@@ -47,19 +49,24 @@ class JoblyApi {
 
   // Individual API routes
 
+  /** Check that a user exists and return the user */
+  static async getUser(username){
+    const res = await this.request(`users/${username}`)
+    return res.user;
+  }
+
   /** Create a new user by signing up (available to non-admins) */
 
-  static async signUp(username, password, firstName, lastName, email) {
-    let res = await this.request(`auth/register`,
-      { username, password, firstName, lastName, email }, 'POST');
+  static async signUp(data) {
+    let res = await this.request(`auth/register`, data, 'POST');
     JoblyApi.token = res.token;
     return res.token;
   }
 
   /** Log in and set the token */
 
-  static async login(username, password) {
-    let res = await this.request(`auth/token`, {username, password}, 'POST');
+  static async login(data) {
+    let res = await this.request(`auth/token`, data, 'POST');
     JoblyApi.token = res.token;
     return res.token;
   }
@@ -67,10 +74,10 @@ class JoblyApi {
 
   /** Get details on a user. */   // TODO: Check and test this fn.
 
-  static async getUser(username, password) {
-    let res = await this.request(`auth/token`, {username, password}, 'POST');
-    return res.token;
-  }
+  // static async getUser(username, password) {
+  //   let res = await this.request(`auth/token`, { username, password }, 'POST');
+  //   return res.token;
+  // }
 
   /** Get details on a company by handle. */
 
