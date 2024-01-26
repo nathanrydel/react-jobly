@@ -59,7 +59,6 @@ class JoblyApi {
 
   static async signUp(data) {
     let res = await this.request(`auth/register`, data, 'POST');
-    JoblyApi.token = res.token;
     return res.token;
   }
 
@@ -67,17 +66,8 @@ class JoblyApi {
 
   static async login(data) {
     let res = await this.request(`auth/token`, data, 'POST');
-    JoblyApi.token = res.token;
     return res.token;
   }
-
-
-  /** Get details on a user. */   // TODO: Check and test this fn.
-
-  // static async getUser(username, password) {
-  //   let res = await this.request(`auth/token`, { username, password }, 'POST');
-  //   return res.token;
-  // }
 
   /** Get details on a company by handle. */
 
@@ -110,8 +100,7 @@ class JoblyApi {
     return res.jobs;
   }
 
-  //TODO: getJob -- Probably in Part 2
-
+  //TODO: getJob -- future study?
 }
 
 export default JoblyApi;
