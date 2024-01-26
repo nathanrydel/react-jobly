@@ -1,8 +1,25 @@
 import React from 'react';
+import ProfileForm from './ProfileForm';
 
-function Profile() {
+/**
+ * Renders the profile form for the site
+ *
+ * endpoint: /profile
+ *
+ * Props:
+ * - updateProfile: fn from parent
+ *
+ * State:
+ * - None
+ *
+ * RouteList -> Profile -> ProfileForm
+ */
+
+function Profile({ updateProfile }) {
   return (
-    <div className='Profile'>Profile</div>
+    <div className='Profile'>
+      <ProfileForm updateProfile={updateProfile} />
+    </div>
   );
 }
 
