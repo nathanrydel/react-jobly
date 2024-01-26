@@ -47,6 +47,14 @@ class JoblyApi {
 
   // Individual API routes
 
+
+  /** Get details on a user. */   // TODO: Check and test this fn.
+
+  static async getUser(username, password) {
+    let res = await this.request(`auth/token`, {username, password}, 'POST');
+    return res.token;
+  }
+
   /** Get details on a company by handle. */
 
   static async getCompany(handle) {

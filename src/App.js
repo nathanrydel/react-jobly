@@ -25,6 +25,17 @@ function App() {
 
   console.log('App renders with: ', currUsername, token);
 
+  /** useEffect checks status of current user to determine whether to
+   *  render the general welcome message or the user-specific message.
+   */
+
+  // TODO: Implement this.
+  // useEffect(function checkForUser() {
+  //   async function getUserFromApi() {
+  //     return 1;
+  //   }
+  // }, []);
+
   /** Sign up user for the site */
   async function signUp() {
     return;
