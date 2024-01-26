@@ -2,6 +2,9 @@ import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import RouteList from "./RouteList";
 import NavBar from "./NavBar";
+import { useState } from 'react';
+import userContext from "./userContext"
+
 
 /** Main App component
  *
@@ -9,19 +12,43 @@ import NavBar from "./NavBar";
  * - none
  *
  * State:
- * - none
+ * - username:
+ * - token:
+ * - ?more
  *
- * App -> { NavBar, RouteList }
+ * App -> UserContext.Provider -> { NavBar, RouteList }
  */
 
 function App() {
+  const [currUsername, setCurrUsername] = useState(null);
+  const [token, setToken] = useState("");
+
+  console.log('App renders with: ', currUsername, token);
+
+  /** Sign up user for the site */
+  async function signUp() {
+    return;
+  }
+
+  /** Login user into site */
+  async function login() {
+    return;
+  }
+
+  /** Log out a user from the site */
+  async function logOut() {
+    return;
+  }
+
+  /** Update user profile on the site */
+
   return (
-      <BrowserRouter>
-        <div className="App">
-          <NavBar />
-          <RouteList />
-        </div>
-      </BrowserRouter>
+    <BrowserRouter>
+      <div className="App">
+        <NavBar />
+        <RouteList />
+      </div>
+    </BrowserRouter>
   );
 }
 
