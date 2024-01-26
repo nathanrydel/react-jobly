@@ -20,10 +20,10 @@ import userContext from "./userContext";
  */
 
 function App() {
-  const [currUsername, setCurrUsername] = useState(null);
+  const [currUser, setCurrUser] = useState(null);
   const [token, setToken] = useState("");
 
-  console.log('App renders with: ', currUsername, token);
+  console.log('App renders with: ', currUser, token);
 
   /** useEffect checks status of current user to determine whether to
    *  render the general welcome message or the user-specific message.
@@ -57,11 +57,11 @@ function App() {
   }
 
   return (
-    <userContext.Provider value={{ username: currUsername, token }}>
+    <userContext.Provider value={{ user: currUser, token }}>
       <BrowserRouter>
         <div className="App">
-          <NavBar />
-          <RouteList />
+          <NavBar logOut={logOut} />
+          <RouteList login={login} signUp={signUp} currUser={currUser}/>
         </div>
       </BrowserRouter>
     </userContext.Provider>
