@@ -8,8 +8,9 @@ import "./ProfileForm.css";
  *  -updateProfile: fn to call in App
  *
  * State:
- * - formData:
- * - formErrors:
+ * - formData: data entered into the form
+ * - formErrors: errors encountered while filling form
+ * - updateConfirmed: set to true once the form update is registered
  *
  * Profile -> ProfileForm
  */

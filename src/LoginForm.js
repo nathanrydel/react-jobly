@@ -9,8 +9,8 @@ import "./LoginForm.css";
  *  -login: fn to call in App
  *
  * State:
- * - formData:
- * - formErrors:
+ * - formData: data entered into the form
+ * - formErrors: errors encountered while filling form
  *
  * Login -> LoginForm
  */

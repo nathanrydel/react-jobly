@@ -22,15 +22,12 @@ function NavBar({ logOut }) {
   return (
     <div className="NavBar">
       <div className="NavBar-brand">
-        <NavLink to="/" end>Jobly</NavLink>
+        <NavLink to="/" end>Jobly v2</NavLink>
       </div>
 
       <div className="NavBar-nav">
         {currUser &&
           <ul>
-            <li>
-              <NavLink to="/">Jobly v2</NavLink>
-            </li>
             <li>
               <NavLink to="/companies">Companies</NavLink>
             </li>
