@@ -35,11 +35,12 @@ function App() {
 
   console.log('App renders with: ', currUser, token);
 
+  // TODO: Common to make this a comment rather than full docstring.
   /**
    *  Get the user from the DB to determine whether to update the user state.
    */
 
-  useEffect(function checkForUser() {
+  useEffect(function checkForUserTokenChange() {
     async function getUserFromApi() {
       if (token) {
         try {
@@ -58,10 +59,26 @@ function App() {
     getUserFromApi();
   }, [token]);
 
+  /**
+   *  Set the token into localstorage whenever it changes.
+   */
+
+  // useEffect(function setTokenInLocalStorage() {
+  //   function setToken() {
+  //     // if token is already in local storage
+  //       // do nothing
+  //     // if the token is ""
+  //       //
+
+
+  //   }
+  // })
+
+
   /** Sign up user for the site */
-  async function signUp(data) {
+  async function signUp(data) {   // TODO: More specific name like signUpData
     let userTokenRes = await JoblyApi.signUp(data);
-    setToken(userTokenRes);
+    setToken(userTokenRes);  // TODO: could call it ~~token~~  (...but which?)
   }
 
   /** App wide function to Login user */
