@@ -16,7 +16,7 @@ import "./LoginForm.css";
  */
 
 
-function LoginForm() {
+function LoginForm({ login }) {
 
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -37,7 +37,7 @@ function LoginForm() {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      await signUp(formData);
+      await login(formData);
       navigate("/");
     } catch (err) {
       setFormErrors(err);
