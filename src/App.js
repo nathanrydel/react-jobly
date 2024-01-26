@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import RouteList from "./RouteList";
 import NavBar from "./NavBar";
 import { useState } from 'react';
-import userContext from "./userContext"
+import userContext from "./userContext";
 
 
 /** Main App component
@@ -41,14 +41,19 @@ function App() {
   }
 
   /** Update user profile on the site */
+  async function updateProfile() {
+    return;
+  }
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <NavBar />
-        <RouteList />
-      </div>
-    </BrowserRouter>
+    <userContext.Provider value={{ username: currUsername, token }}>
+      <BrowserRouter>
+        <div className="App">
+          <NavBar />
+          <RouteList />
+        </div>
+      </BrowserRouter>
+    </userContext.Provider>
   );
 }
 
