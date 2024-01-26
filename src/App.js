@@ -74,7 +74,7 @@ function App() {
   }
 
   return (
-    <userContext.Provider value={{ currUser, token }}>
+    <userContext.Provider value={{ currUser }}>
       <BrowserRouter>
         <div className="App">
           <NavBar logOut={logOut} />
