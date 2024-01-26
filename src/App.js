@@ -32,7 +32,6 @@ function App() {
    *  render the general welcome message or the user-specific message.
    */
 
-  // TODO: Implement this.
   useEffect(function checkForUser() {
     async function getUserFromApi() {
       if (token) {
@@ -65,7 +64,8 @@ function App() {
 
   /** Log out a user from the site */
   async function logOut() {
-    return;
+    setCurrUser(null);
+    setToken("");
   }
 
   /** Update user profile on the site */
