@@ -15,9 +15,11 @@ import LoginForm from './LoginForm';
  * RouteList -> Login -> LoginForm
  */
 
-function Login() {
+function Login({ login }) {
   return (
-    <div className='Login'>Login</div>
+    <div className='Login'>
+      <LoginForm login={login} />
+    </div>
   );
 }
 
