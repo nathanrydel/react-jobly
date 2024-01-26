@@ -15,9 +15,16 @@ import './App.css';
  * - none
  *
  * State:
- * - currUser:
- * - token:
- * - ?more
+ * - currUser: user object returned from API once logged in
+ *   {
+ *    "username": string
+ *    "firstName": string
+ *    "lastName": string
+ *    "email": string
+ *    "isAdmin": boolean
+ *    "applications": number[]
+ *   }
+ * - token: jwt
  *
  * App -> UserContext.Provider -> { NavBar, RouteList }
  */
