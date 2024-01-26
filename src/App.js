@@ -78,7 +78,7 @@ function App() {
   /** Sign up user for the site */
   async function signUp(data) {   // TODO: More specific name like signUpData
     let userTokenRes = await JoblyApi.signUp(data);
-    setToken(userTokenRes);  // TODO: could call it ~~token~~  (...but which?)
+    setToken(userTokenRes);
   }
 
   /** App wide function to Login user */
