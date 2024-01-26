@@ -49,6 +49,8 @@ class JoblyApi {
 
   // Individual API routes
 
+  // TODO: Not really checking -- just returning, and error is handled elsewhere
+  // It returns a user.
   /** Check that a user exists and return the user */
   static async getUser(username){
     const res = await this.request(`users/${username}`)
@@ -56,14 +58,19 @@ class JoblyApi {
   }
 
   /** Create a new user by signing up (available to non-admins) */
-
+  // TODO: be more specific about parameter names (not just *data*)
   static async signUp(data) {
     let res = await this.request(`auth/register`, data, 'POST');
     return res.token;
   }
 
   /** Log in and set the token */
-
+  // TODO: be more specific about parameter names (not just *data*)
+  // There is a benefit to setting JoblyApi.token here.
+  // Every call you make from the api class makes a call to just here,
+  // never used in the app, (makes it easier for app devs to understand it.)
+  // buuuuuuut, it's necessary to bring it out into the app to use in
+  // localstorage.
   static async login(data) {
     let res = await this.request(`auth/token`, data, 'POST');
     return res.token;

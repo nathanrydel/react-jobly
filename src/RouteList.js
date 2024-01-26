@@ -57,6 +57,7 @@ function RouteList({ login, signUp, currUser }) {
           </>
         }
 
+        {/* TODO: NO SLASH, JUST THE STAR.  */}
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     </div>

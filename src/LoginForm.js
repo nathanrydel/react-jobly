@@ -44,6 +44,7 @@ function LoginForm({ login }) {
     }
   }
 
+  // TODO: enter id attributes
   return (
     <div className='LoginForm'>
       <h2>Login</h2>
@@ -66,8 +67,10 @@ function LoginForm({ login }) {
           />
         </div>
 
+        {/* // TODO: Yeah, you can use _ here. */}
         {formErrors.length > 0
-          ? <div>{formErrors.map((err, i) => <p key={i}>Error: {formErrors[i]}</p>)}</div>
+          // ? <div>{formErrors.map((err, i) => <p key={i}>Error: {formErrors[i]}</p>)}</div>
+          ? <div>{formErrors.map((_, i) => <p key={i}>Error: {formErrors[i]}</p>)}</div>
           : null
         }
 
