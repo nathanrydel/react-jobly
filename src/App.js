@@ -59,8 +59,9 @@ function App() {
   }, [token]);
 
   /** Sign up user for the site */
-  async function signUp() {
-    return;
+  async function signUp(data) {
+    let userTokenRes = await JoblyApi.signUp(data);
+    setToken(userTokenRes);
   }
 
   /** App wide function to Login user */
