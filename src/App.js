@@ -35,8 +35,8 @@ function App() {
 
   console.log('App renders with: ', currUser, token);
 
-  /** useEffect checks status of current user to determine whether to
-   *  render the general welcome message or the user-specific message.
+  /**
+   *  Get the user from the DB to determine whether to update the user state.
    */
 
   useEffect(function checkForUser() {
