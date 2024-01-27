@@ -34,7 +34,7 @@ import Profile from "./Profile";
  * RouteList -> { Homepage, CompanyList, CompanyDetail, JobList }
  */
 
-function RouteList({ login, signUp, currUser }) {
+function RouteList({ login, signUp, updateProfile, currUser }) {
   console.log("RouteList");
   return (
     <div>
@@ -53,7 +53,7 @@ function RouteList({ login, signUp, currUser }) {
             <Route path="/companies" element={<CompanyList />} />
             <Route path="/companies/:handle" element={<CompanyDetail />} />
             <Route path="/jobs" element={<JobList />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<Profile updateProfile={updateProfile } />} />
           </>
         }
 
