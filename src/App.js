@@ -98,8 +98,12 @@ function App() {
   }
 
   /** Update user profile on the site */
-  async function updateProf() {
-    return;
+  async function updateProfile(data) {
+    console.log("Sent to api: updateProfile", currUser.username, data);
+    let userRes = await JoblyApi.updateProfile(currUser.username, data);
+    setCurrUser(userRes);
+    logOut();
+    login(data);
   }
 
   return (
@@ -110,7 +114,7 @@ function App() {
           <RouteList
             login={login}
             signUp={signUp}
-            updateProf={updateProf}
+            updateProfile={updateProfile}
             currUser={currUser}
           />
         </div>
