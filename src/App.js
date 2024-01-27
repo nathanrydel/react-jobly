@@ -31,7 +31,8 @@ import './App.css';
 
 function App() {
   const [currUser, setCurrUser] = useState(null);
-  const [token, setToken] = useState("");
+  // const [token, setToken] = useState("");
+  const [token, setToken] = useState(localStorage.getItem('token'));
 
   console.log('App renders with: ', currUser, token);
 
