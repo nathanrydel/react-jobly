@@ -64,6 +64,12 @@ class JoblyApi {
     return res.token;
   }
 
+  /** Update a user account */
+  static async updateUser(username, userData) {
+    let res = await this.request(`users/${username}`, userData, 'PATCH');
+    return res.user;
+  }
+
   /** Log in and set the token */
   // TODO: be more specific about parameter names (not just *data*)
   // There is a benefit to setting JoblyApi.token here.
