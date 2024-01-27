@@ -49,12 +49,15 @@ function App() {
           JoblyApi.token = token;
           const userRes = await JoblyApi.getUser(username);
           setCurrUser(userRes);
+          localStorage.setItem('token', token);
         } catch (err) {
           console.log("API encountered error", err);
           setCurrUser(null);
+          localStorage.setItem('token', null);
         }
       } else {
         setCurrUser(null);
+        localStorage.setItem('token', null);
       }
     }
     getUserFromApi();
