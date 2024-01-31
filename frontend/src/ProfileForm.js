@@ -17,10 +17,11 @@ import "./ProfileForm.css";
 
 function ProfileForm({ updateProfile }) {
   const [formData, setFormData] = useState({
-    username: "",
+    // username: "",
     firstName: "",
     lastName: "",
     email: "",
+    password: "password",   // TODO: remove this!
   });
   const [formErrors, setFormErrors] = useState([]);
   const [updateConfirmed, setUpdateConfirmed] = useState(false);
@@ -49,14 +50,15 @@ function ProfileForm({ updateProfile }) {
     <div className='ProfileForm'>
       <h2>Profile</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        {/* <div>
           <label htmlFor="username">Username: </label>
           <input
+            disabled
             name="username"
             value={formData.username}
             onChange={handleChange}
           />
-        </div>
+        </div> */}
         <div>
           <label htmlFor="firstName">First Name: </label>
           <input
